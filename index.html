@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieNight</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🎬 Movie<span>Night</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#about">About</a>
+            <button id="watchlistBtn">❤️ Watchlist</button>
+            <button id="themeBtn">🌙</button>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="featured">🔥 FEATURED MOVIE</p>
+
+            <h1>The Dark Knight</h1>
+
+            <div class="hero-info">
+                ⭐ 9.0/10 &nbsp; • &nbsp; Action &nbsp; • &nbsp; Crime
+            </div>
+
+            <p>
+                When Batman faces a criminal mastermind known as the Joker,
+                Gotham City is pushed into chaos.
+            </p>
+
+            <button class="hero-btn" onclick="openMovie(0)">
+                ▶ View Details
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MOVIES SECTION -->
+    <section class="movies-section" id="movies">
+
+        <div class="section-heading">
+            <div>
+                <p class="small-title">EXPLORE</p>
+                <h2>Popular Movies</h2>
+            </div>
+        </div>
+
+
+        <!-- SEARCH + FILTER -->
+        <div class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search movies..."
+            >
+
+            <select id="genreFilter">
+
+                <option value="All">All Genres</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Crime">Crime</option>
+                <option value="Drama">Drama</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Thriller">Thriller</option>
+
+            </select>
+
+
+            <select id="ratingSort">
+
+                <option value="default">Sort by Rating</option>
+                <option value="high">Highest Rating</option>
+                <option value="low">Lowest Rating</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- MOVIE CARDS -->
+        <div class="movie-grid" id="movieGrid"></div>
+
+        <p id="noMovies" class="no-movies">
+            No movies found 😢
+        </p>
+
+    </section>
+
+
+    <!-- WATCHLIST -->
+    <section class="watchlist-section" id="watchlist">
+
+        <div class="watchlist-box">
+
+            <h2>❤️ My Watchlist</h2>
+
+            <div id="watchlistContainer">
+                <p>Your watchlist is empty.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <p class="small-title">ABOUT</p>
+
+        <h2>Welcome to MovieNight 🎬</h2>
+
+        <p>
+            MovieNight is a simple movie discovery website where you can
+            search, filter, sort and save your favourite movies.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>© 2026 MovieNight | Movie Discovery Website</p>
+
+    </footer>
+
+
+    <!-- MOVIE POPUP -->
+    <div class="modal" id="movieModal">
+
+        <div class="modal-content">
+
+            <button class="close-btn" onclick="closeModal()">×</button>
+
+            <img id="modalImage" src="" alt="Movie Poster">
+
+            <div class="modal-details">
+
+                <h2 id="modalTitle"></h2>
+
+                <p id="modalGenre"></p>
+
+                <p id="modalRating"></p>
+
+                <p id="modalDescription"></p>
+
+                <button id="modalWatchlistBtn" class="watch-btn">
+                    ❤️ Add to Watchlist
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

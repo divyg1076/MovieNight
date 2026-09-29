@@ -1,0 +1,705 @@
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0f;
+    color: white;
+    transition: 0.3s;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(10, 10, 15, 0.95);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid #24242c;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #e50914;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e50914;
+}
+
+.nav-links button {
+    border: none;
+    background: #1b1b23;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-links button:hover {
+    background: #e50914;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 580px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 7%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0b0b0f 10%,
+            rgba(11,11,15,0.85) 40%,
+            rgba(11,11,15,0.2)
+        ),
+        url("https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.featured {
+    color: #e50914;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.hero-info {
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.hero-content > p:not(.featured) {
+    color: #cfcfcf;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 7px;
+
+    background: #e50914;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    background: #b20710;
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   MOVIES SECTION
+========================= */
+
+.movies-section {
+    padding: 70px 7%;
+}
+
+.small-title {
+    color: #e50914;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    margin-top: 8px;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin: 35px 0;
+    flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+    padding: 13px 15px;
+
+    border: 1px solid #30303a;
+    border-radius: 8px;
+
+    background: #17171e;
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.controls input {
+    width: 300px;
+}
+
+.controls input:focus,
+.controls select:focus {
+    border-color: #e50914;
+}
+
+
+/* =========================
+   MOVIE GRID
+========================= */
+
+.movie-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================
+   MOVIE CARD
+========================= */
+
+.movie-card {
+    background: #15151c;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+    border: 1px solid #24242c;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    border-color: #e50914;
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+
+/* POSTER */
+
+.movie-poster {
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #202027;
+}
+
+
+/* CARD INFO */
+
+.movie-info {
+    padding: 18px;
+}
+
+.movie-info h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.movie-meta {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+}
+
+.rating {
+    color: #ffd700;
+}
+
+.genre {
+    color: #aaa;
+}
+
+.movie-description {
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.card-buttons button {
+    flex: 1;
+
+    padding: 9px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.details-btn {
+    background: #e50914;
+    color: white;
+}
+
+.details-btn:hover {
+    background: #b20710;
+}
+
+.fav-btn {
+    background: #292932;
+    color: white;
+}
+
+.fav-btn:hover {
+    background: #444450;
+}
+
+
+/* =========================
+   NO MOVIES
+========================= */
+
+.no-movies {
+    display: none;
+
+    text-align: center;
+
+    padding: 50px;
+
+    color: #aaa;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   WATCHLIST
+========================= */
+
+.watchlist-section {
+    padding: 60px 7%;
+
+    background: #101015;
+}
+
+.watchlist-box {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.watchlist-box h2 {
+    margin-bottom: 25px;
+}
+
+.watchlist-item {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: #191920;
+
+    padding: 15px 20px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+}
+
+.remove-btn {
+    border: none;
+
+    background: #e50914;
+
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    padding: 80px 7%;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 35px;
+    margin: 12px 0;
+}
+
+.about > p:last-child {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 1px solid #24242c;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.8);
+
+    z-index: 2000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 800px;
+    width: 100%;
+
+    background: #17171e;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    display: flex;
+
+    gap: 25px;
+
+    position: relative;
+
+    border: 1px solid #333;
+}
+
+.modal-content img {
+    width: 250px;
+
+    height: 360px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+.modal-details {
+    padding-top: 30px;
+}
+
+.modal-details h2 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.modal-details p {
+    color: #bbb;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.watch-btn {
+    padding: 12px 18px;
+
+    background: #e50914;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light-mode {
+    background: #f5f5f5;
+    color: #111;
+}
+
+body.light-mode .navbar {
+    background: white;
+    border-color: #ddd;
+}
+
+body.light-mode .nav-links a {
+    color: #333;
+}
+
+body.light-mode .nav-links button {
+    background: #eee;
+    color: #111;
+}
+
+body.light-mode .movies-section {
+    background: #f5f5f5;
+}
+
+body.light-mode .movie-card {
+    background: white;
+    border-color: #ddd;
+}
+
+body.light-mode .movie-description {
+    color: #666;
+}
+
+body.light-mode .controls input,
+body.light-mode .controls select {
+    background: white;
+    color: #111;
+    border-color: #ccc;
+}
+
+body.light-mode .watchlist-section {
+    background: #eaeaea;
+}
+
+body.light-mode .watchlist-item {
+    background: white;
+}
+
+body.light-mode .about {
+    background: #f5f5f5;
+}
+
+body.light-mode footer {
+    background: white;
+}
+
+body.light-mode .modal-content {
+    background: white;
+    color: #111;
+}
+
+body.light-mode .modal-details p {
+    color: #555;
+}
+
+body.light-mode .close-btn {
+    color: #111;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .movie-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .controls input {
+        width: 100%;
+    }
+
+    .modal-content {
+        flex-direction: column;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+    }
+
+    .modal-content img {
+        width: 180px;
+        height: 260px;
+
+        margin: auto;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .movies-section,
+    .watchlist-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+}
